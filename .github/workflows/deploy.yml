@@ -40,10 +40,7 @@ jobs:
         env:
           # Masalan: /eski_Khiva/
           BASE_PATH: ${{ steps.pages.outputs.base_path }}/
-
-      # Sahifaga to'g'ridan-to'g'ri kirilganda (masalan /tuproq-qala) GitHub Pages 404 qaytaradi.
-      # 404.html sifatida index.html'ni beramiz — React Router kerakli sahifani o'zi ochadi.
-      - run: cp dist/index.html dist/404.html
+      # Har bir sahifa uchun .html nusxalar va 404.html'ni vite.config.js'dagi plagin yaratadi
 
       - uses: actions/upload-pages-artifact@v3
         with:

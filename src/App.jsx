@@ -7,12 +7,20 @@ import About from './pages/About'
 import QoyQirilganQala from './pages/QoyQirilganQala'
 import TuproqQala from './pages/TuproqQala'
 import KohnaUrganch from './pages/KohnaUrganch'
+import { routes, pageTitle } from './routes'
 
-// Tepasida katta rasm bor sahifalar: navbar rasm ustida shaffof turadi
-const PAGES_WITH_HERO = ['/', '/qoy-qirilgan-qala', '/tuproq-qala', '/kohna-urganch']
+const PAGES = {
+  '/': <Home />,
+  '/about': <About />,
+  '/qoy-qirilgan-qala': <QoyQirilganQala />,
+  '/tuproq-qala': <TuproqQala />,
+  '/kohna-urganch': <KohnaUrganch />,
+}
 
 function App() {
   const { pathname, hash } = useLocation()
+  // "/tuproq-qala/" va "/tuproq-qala" bir xil sahifa
+  const route = routes.find((r) => r.path === (pathname.replace(/\/+$/, '') || '/'))
 
   useEffect(() => {
     if (hash) {
@@ -22,15 +30,18 @@ function App() {
     }
   }, [pathname, hash])
 
+  useEffect(() => {
+    document.title = pageTitle(route)
+  }, [route])
+
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      <Navbar overlayHero={PAGES_WITH_HERO.includes(pathname)} />
+      {/* Tepasida katta rasm bor sahifalarda navbar rasm ustida shaffof turadi */}
+      <Navbar overlayHero={Boolean(route?.hero)} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/qoy-qirilgan-qala" element={<QoyQirilganQala />} />
-        <Route path="/tuproq-qala" element={<TuproqQala />} />
-        <Route path="/kohna-urganch" element={<KohnaUrganch />} />
+        {routes.map((r) => (
+          <Route key={r.path} path={r.path} element={PAGES[r.path]} />
+        ))}
       </Routes>
       <Footer />
     </div>
