@@ -9,6 +9,7 @@ export const routes = [
   { path: '/qoy-qirilgan-qala', title: "Qo'y Qirilgan qal'a", hero: true }, // hero: tepasida katta rasm bor
   { path: '/tuproq-qala', title: "Tuproq qal'a", hero: true },
   { path: '/kohna-urganch', title: "Ko'hna Urganch", hero: true },
+  { path: '/aloqa', title: 'Aloqa', hero: true },
 ]
 
 export const pageTitle = (route) => (route?.title ? `${route.title} — ${SITE_NAME}` : SITE_NAME)

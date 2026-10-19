@@ -7,6 +7,7 @@ import About from './pages/About'
 import QoyQirilganQala from './pages/QoyQirilganQala'
 import TuproqQala from './pages/TuproqQala'
 import KohnaUrganch from './pages/KohnaUrganch'
+import Aloqa from './pages/Aloqa'
 import { routes, pageTitle } from './routes'
 
 const PAGES = {
@@ -15,6 +16,7 @@ const PAGES = {
   '/qoy-qirilgan-qala': <QoyQirilganQala />,
   '/tuproq-qala': <TuproqQala />,
   '/kohna-urganch': <KohnaUrganch />,
+  '/aloqa': <Aloqa />,
 }
 
 function App() {

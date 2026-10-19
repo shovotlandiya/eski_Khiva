@@ -6,7 +6,7 @@ const links = [
   { label: 'Bosh sahifa', href: '/' },
   { label: 'Xizmatlar', href: '/#services' },
   { label: 'Biz haqimizda', href: '/about' },
-  { label: 'Aloqa', href: '#contact' },
+  { label: 'Aloqa', href: '/aloqa' },
 ]
 
 export default function Navbar({ overlayHero = false }) {

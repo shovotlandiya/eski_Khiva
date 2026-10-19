@@ -1,20 +1,22 @@
 import { Link } from 'react-router-dom'
+import { contact } from '../data/contact'
 
 const footerLinks = {
   Sahifalar: [
     { label: 'Bosh sahifa', href: '/' },
     { label: 'Xizmatlar', href: '/#services' },
     { label: 'Biz haqimizda', href: '/about' },
+    { label: 'Aloqa', href: '/aloqa' },
   ],
   Aloqa: [
-    { label: 'bekpulatov.j@mamunedu.uz', href: 'mailto:bekpulatov.j@mamunedu.uz' },
-    { label: '+998 91 916 76 36', href: 'tel:+998919167636' },
-    { label: 'Urganch, O\'zbekiston', href: 'https://www.google.com/maps/search/?api=1&query=Urganch%2C%20Uzbekistan' },
+    { label: contact.email, href: `mailto:${contact.email}` },
+    contact.phone,
+    contact.location,
   ],
 }
 
 const socialLinks = [
-  { label: 'Telegram', href: 'https://t.me/shovotland' },
+  { label: 'Telegram', href: contact.telegram.href },
 ]
 
 // CC BY-SA litsenziyasi muallifni ko'rsatishni talab qiladi
