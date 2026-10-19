@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Xiva xonligining saqlanib qolgan tarixiy binolari 3D formatda." />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <script>
+      // Hero'dagi birinchi rasmni JS yuklanishini kutmasdan oldindan yuklaymiz (Hero.jsx bilan bir xil bo'lishi kerak).
+      // Faqat bosh sahifada — boshqa sahifalarda bu rasm kerak emas. %BASE_URL% ni Vite build vaqtida almashtiradi.
+      var base = '%BASE_URL%'
+      if (location.pathname === base) {
+        var hero = base + 'images/hero/ichan-qala-1-'
+        document.head.appendChild(Object.assign(document.createElement('link'), {
+          rel: 'preload',
+          as: 'image',
+          type: 'image/webp',
+          fetchPriority: 'high',
+          href: hero + '1280.webp',
+          imageSrcset: hero + '960.webp 960w, ' + hero + '1280.webp 1280w, ' + hero + '1920.webp 1920w',
+          imageSizes: '100vw',
+        }))
+      }
+    </script>
+    <title>Mening birinchi loyiham</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
