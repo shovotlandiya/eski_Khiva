@@ -7,7 +7,7 @@ const footerLinks = {
     { label: 'Biz haqimizda', href: '/about' },
   ],
   Aloqa: [
-    { label: 'info@meningloyiham.uz', href: 'mailto:info@meningloyiham.uz' },
+    { label: 'bekpulatov.j@mamunedu.uz', href: 'mailto:bekpulatov.j@mamunedu.uz' },
     { label: '+998 91 916 76 36', href: 'tel:+998919167636' },
     { label: 'Urganch, O\'zbekiston', href: 'https://www.google.com/maps/search/?api=1&query=Urganch%2C%20Uzbekistan' },
   ],
