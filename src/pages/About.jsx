@@ -1,9 +1,29 @@
 import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import PageHero from '../components/PageHero'
+import { contact } from '../data/contact'
 import { responsiveImage } from '../utils/images'
 
 const REPO_URL = 'https://github.com/shovotlandiya/eski_Khiva'
+const GITHUB_PROFILE = 'https://github.com/shovotlandiya'
+
+const skills = [
+  { label: 'Frontend', detail: 'React, Tailwind, animatsiyalar' },
+  { label: 'Backend', detail: 'Node.js, PostgreSQL, REST/GraphQL' },
+  { label: 'Dizayn', detail: 'Figma, tizimli komponentlar' },
+]
+
+const journey = [
+  { year: '2021', text: 'Birinchi kod qatorini yozdim va shu bilan qoldim.' },
+  { year: '2023', text: 'Frilanser sifatida 12 dan ortiq loyihani ishga tushirdim.' },
+  { year: '2026', text: "O'z mahsulotim ustida ishlayapman." },
+]
+
+const authorLinks = [
+  { icon: 'code', label: 'GitHub', href: GITHUB_PROFILE, external: true },
+  { icon: 'send', label: 'Telegram', href: contact.telegram.href, external: true },
+  { icon: 'mail', label: 'Email', href: `mailto:${contact.email}` },
+]
 
 const stats = [
   { value: '3', label: 'batafsil yodgorlik sahifasi' },
@@ -182,6 +202,57 @@ export default function About() {
                 </div>
               </Link>
             ))}
+          </div>
+        </section>
+
+        <section className="mt-20">
+          <p className="text-sm font-semibold uppercase tracking-wider text-teal-700">Loyiha muallifi</p>
+          <div className="mt-4 grid grid-cols-1 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-900/5 md:grid-cols-[1fr_1.1fr]">
+            <div className="flex flex-col bg-slate-900 p-8 text-white sm:p-10">
+              <h2 className="text-2xl font-bold leading-snug tracking-tight sm:text-3xl">
+                Interfeyslarni g'oyadan mahsulotgacha olib boradigan dasturchiman.
+              </h2>
+              <p className="mt-5 leading-7 text-slate-300">
+                Men foydalanuvchi tajribasi va texnik puxtalik kesishgan nuqtada ishlashni yaxshi ko'raman.
+                Har bir loyihada oddiylikni saqlab, tafsilotlarga e'tibor beraman — chunki yaxshi mahsulot
+                his qilinadi, ko'rinadi emas.
+              </p>
+              <div className="mt-auto flex flex-wrap gap-2 pt-8">
+                {authorLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    {...(link.external && { target: '_blank', rel: 'noopener noreferrer' })}
+                    className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-3.5 py-2 text-sm font-medium text-white ring-1 ring-white/15 transition hover:bg-white hover:text-slate-900"
+                  >
+                    <Icon name={link.icon} className="h-4 w-4" />
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="p-8 sm:p-10">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Ko'nikmalar</h3>
+              <ul className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {skills.map((skill) => (
+                  <li key={skill.label} className="rounded-xl border border-slate-200 p-4 transition-colors hover:border-teal-300">
+                    <p className="font-semibold text-slate-900">{skill.label}</p>
+                    <p className="mt-1 text-sm leading-6 text-slate-600">{skill.detail}</p>
+                  </li>
+                ))}
+              </ul>
+
+              <h3 className="mt-8 text-xs font-semibold uppercase tracking-wider text-slate-500">Yo'l</h3>
+              <ol className="mt-3 space-y-4">
+                {journey.map((step) => (
+                  <li key={step.year} className="flex items-baseline gap-4">
+                    <span className="w-12 shrink-0 rounded-md bg-teal-50 py-0.5 text-center font-mono text-sm font-semibold text-teal-700">{step.year}</span>
+                    <p className="leading-7 text-slate-700">{step.text}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
         </section>
 

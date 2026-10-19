@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { contact } from '../data/contact'
+import { SITE_NAME } from '../routes'
 
 const footerLinks = {
   Sahifalar: [
@@ -57,11 +58,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
           {/* Logo va qisqa tavsif */}
           <div>
-            <span className="text-lg font-semibold text-slate-900">
-              Mening birinchi loyiham
-            </span>
+            <span className="text-lg font-semibold text-slate-900">{SITE_NAME}</span>
             <p className="mt-3 text-sm text-slate-500">
-              Sizning g'oyangizni raqamli dunyoga olib chiqamiz.
+              Xiva va Qadimgi Xorazm tarixi — o'zbek tilida, hamma uchun ochiq.
             </p>
           </div>
 
@@ -83,7 +82,7 @@ export default function Footer() {
         {/* Pastki qator: mualliflik huquqi va ijtimoiy tarmoqlar */}
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 sm:flex-row">
           <p className="text-sm text-slate-500">
-            © {currentYear} Mening birinchi loyiham. Barcha huquqlar himoyalangan.
+            © {currentYear} {SITE_NAME}. Barcha huquqlar himoyalangan.
           </p>
           <div className="flex gap-5">
             {socialLinks.map((social) => (
