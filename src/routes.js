@@ -5,7 +5,7 @@ export const SITE_NAME = 'Eski Xiva'
 
 export const routes = [
   { path: '/', hero: true },
-  { path: '/about', title: 'Biz haqimizda' },
+  { path: '/about', title: 'Biz haqimizda', hero: true },
   { path: '/qoy-qirilgan-qala', title: "Qo'y Qirilgan qal'a", hero: true }, // hero: tepasida katta rasm bor
   { path: '/tuproq-qala', title: "Tuproq qal'a", hero: true },
   { path: '/kohna-urganch', title: "Ko'hna Urganch", hero: true },
