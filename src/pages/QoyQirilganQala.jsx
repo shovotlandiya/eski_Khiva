@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom'
-import { MonumentHero, Facts, Video3D, Section, Credit, Figure, Timeline, Coordinates, Sources } from '../components/Monument'
+import { MonumentHero, Intro, Facts, Video3D, Section, TextLink, Credit, Figure, Timeline, Coordinates, Sources } from '../components/Monument'
 import { responsiveImage, singleImage, videoSrc } from '../utils/images'
 
 const img = (name, widths) => responsiveImage(`qoy-qirilgan-qala/${name}`, widths)
@@ -37,7 +36,7 @@ const sources = [
 
 export default function QoyQirilganQala() {
   return (
-    <main className="flex-1">
+    <main className="flex-1 bg-white">
       <MonumentHero
         image={img('aerofoto', [640, 1250])}
         alt="Qo'y Qirilgan qal'a qazishmalari tepadan: markazdagi dumaloq bino va uni o'rab turgan halqa devor"
@@ -45,7 +44,7 @@ export default function QoyQirilganQala() {
         subtitle="Qadimgi Xorazmning dumaloq ibodatxona-qal'asi — podsholar maqbarasi va osmonni kuzatish joyi"
       />
 
-      <div className="mx-auto max-w-4xl px-6 pb-20">
+      <Intro>
         <Facts items={facts} />
 
         <Video3D
@@ -56,7 +55,9 @@ export default function QoyQirilganQala() {
           Qal'aning qayta tiklangan 3D modeli: tashqi devorlar va hovli, mash'alalar bilan yoritilgan ichki
           xonalar va olov yonib turgan zal. Qadimda bu yerda hayot qanday kechganini ko'ring.
         </Video3D>
+      </Intro>
 
+      <div className="mx-auto max-w-4xl px-6 pb-24">
         <Section title="Umumiy ma'lumot">
           <p>
             Qo'y Qirilgan qal'a — Qadimgi Xorazmning eng mashhur yodgorliklaridan biri. U Qoraqalpog'iston
@@ -141,9 +142,7 @@ export default function QoyQirilganQala() {
           <p>
             Qal'a Amudaryoning qadimiy deltasida, Qizilqum cho'li chekkasida joylashgan. Qadimda u sug'orish
             kanali bo'yida qurilgan. Undan 30 km shimoli-g'arbda Xorazm podsholarining poytaxti —{' '}
-            <Link to="/tuproq-qala" className="font-semibold text-slate-900 underline underline-offset-4 hover:text-slate-600">
-              Tuproq qal'a
-            </Link>{' '}
+            <TextLink to="/tuproq-qala">Tuproq qal'a</TextLink>{' '}
             joylashgan.
           </p>
           <Figure image={img('xarita', [640, 1280])} alt="Xorazm vohasining sun'iy yo'ldosh surati, qal'a o'rni qizil doira bilan belgilangan" className="pt-2">

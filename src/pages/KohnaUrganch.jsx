@@ -1,4 +1,4 @@
-import { MonumentHero, Facts, Video3D, Section, Credit, Figure, Timeline, Coordinates, Sources } from '../components/Monument'
+import { MonumentHero, Intro, Facts, Video3D, Section, Credit, Figure, Timeline, Coordinates, Sources } from '../components/Monument'
 import { responsiveImage, singleImage, videoSrc } from '../utils/images'
 
 const img = (name, widths) => responsiveImage(`kohna-urganch/${name}`, widths)
@@ -60,7 +60,7 @@ const HALF_SIZES = '(min-width: 896px) 408px, (min-width: 640px) 50vw, 100vw'
 
 export default function KohnaUrganch() {
   return (
-    <main className="flex-1">
+    <main className="flex-1 bg-white">
       <MonumentHero
         image={img('bosh-rasm', [960, 1280, 1920])}
         alt="Ko'hna Urganch: baland Qutlug' Temur minorasi va uning yonidagi gumbazli maqbara"
@@ -68,7 +68,7 @@ export default function KohnaUrganch() {
         subtitle="Xorazmshohlar poytaxti — Xivadan oldin Xorazmning bosh shahri bo'lgan qadimiy Gurganj"
       />
 
-      <div className="mx-auto max-w-4xl px-6 pb-20">
+      <Intro>
         <Facts items={facts} />
 
         <Video3D
@@ -79,7 +79,9 @@ export default function KohnaUrganch() {
           Shaharning qayta tiklangan 3D modeli: devorlar bilan o'ralgan Urganch, uning zich mahallalari, ko'k
           gumbazli binolari va minoralari, shahar atrofidagi bog'lar.
         </Video3D>
+      </Intro>
 
+      <div className="mx-auto max-w-4xl px-6 pb-24">
         <Section title="Umumiy ma'lumot">
           <p>
             Ko'hna Urganch (qadimgi nomi — Gurganj) — Xorazmning qadimiy poytaxti. Uning xarobalari bugun
@@ -152,7 +154,7 @@ export default function KohnaUrganch() {
           <p>Ko'hna Urganchda X–XIX asrlarga oid o'nlab obidalar saqlanib qolgan. Ulardan eng mashhurlari:</p>
           <div className="grid grid-cols-1 gap-6 pt-2 sm:grid-cols-3">
             {monuments.map((monument) => (
-              <article key={monument.name} className="overflow-hidden rounded-xl border border-slate-200">
+              <article key={monument.name} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_24px_60px_-35px] shadow-tun-950/40">
                 <img
                   src={monument.image.src}
                   srcSet={monument.image.srcSet}
@@ -163,8 +165,8 @@ export default function KohnaUrganch() {
                   className={`aspect-[4/3] w-full bg-slate-100 object-cover ${monument.imgClassName ?? ''}`}
                 />
                 <div className="p-4">
-                  <h3 className="font-semibold text-slate-900">{monument.name}</h3>
-                  <p className="font-mono text-xs text-slate-500">{monument.period}</p>
+                  <h3 className="font-display font-semibold text-tun-950">{monument.name}</h3>
+                  <p className="mt-1 font-mono text-xs text-oltin-600">{monument.period}</p>
                   <p className="mt-2 text-base leading-7">{monument.text}</p>
                   <p className="mt-3 text-xs text-slate-500">
                     <Credit {...monument.credit} />

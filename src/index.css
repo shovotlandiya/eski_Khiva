@@ -1,6 +1,73 @@
 @import "tailwindcss";
 
 /*
-  Bu yerga o'zingizning global CSS qoidalaringizni qo'shishingiz mumkin.
-  Masalan: shrift, rang o'zgaruvchilari va hokazo.
+  "Raqamli meros" dizayn tizimi: tarix (Xiva koshinlarining firuza va kobalt ranglari, oltin, girih naqshi)
+  + zamonaviylik (to'q fon, nur, shisha effekti, 3D chizma to'ri, zamonaviy shriftlar).
+  Klasslarda: bg-tun-950, text-firuza-300, text-oltin-300, font-display, font-mono va h.k.
 */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Unbounded", "Inter", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Tun — asosiy to'q fon */
+  --color-tun-600: #222c47;
+  --color-tun-700: #161e33;
+  --color-tun-800: #0e1424;
+  --color-tun-900: #080c16;
+  --color-tun-950: #04060c;
+
+  /* Firuza — Xiva koshinlari */
+  --color-firuza-200: #a5f0e8;
+  --color-firuza-300: #6ee7da;
+  --color-firuza-400: #34d3c4;
+  --color-firuza-500: #14b8aa;
+  --color-firuza-600: #0d9488;
+
+  /* Kobalt — koshinlardagi to'q ko'k */
+  --color-kobalt-400: #6b93f0;
+  --color-kobalt-500: #3d6fe0;
+  --color-kobalt-600: #2c56c2;
+
+  /* Oltin — tarixiy aksent */
+  --color-oltin-200: #f5e3bd;
+  --color-oltin-300: #edd197;
+  --color-oltin-400: #e2b866;
+  --color-oltin-600: #9a6f22; /* oq fonda o'qilishi uchun */
+}
+
+/* 3D modellash dasturlaridagi kabi chizma to'ri */
+@utility chizma {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Girih naqshi (8 qirrali yulduz) — to'q fon ustida nozik bezak */
+@utility naqsh-och {
+  background-image: url('./assets/naqsh-och.svg');
+  background-size: 80px 80px;
+}
+
+/* Oq fon uchun chizma to'ri (to'q chiziqlar) */
+@utility chizma-tuq {
+  background-image:
+    linear-gradient(to right, rgb(4 6 12 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(4 6 12 / 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Firuzadan oltinga o'tuvchi matn rangi — to'q fon uchun */
+@utility matn-nur {
+  background-image: linear-gradient(90deg, var(--color-firuza-300), var(--color-firuza-400) 45%, var(--color-oltin-300));
+  background-clip: text;
+  color: transparent;
+}
+
+/* Firuzadan kobaltga o'tuvchi matn rangi — oq fon uchun */
+@utility matn-nur-tuq {
+  background-image: linear-gradient(90deg, var(--color-firuza-600), var(--color-kobalt-600));
+  background-clip: text;
+  color: transparent;
+}

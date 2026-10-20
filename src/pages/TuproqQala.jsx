@@ -1,10 +1,7 @@
-import { Link } from 'react-router-dom'
-import { MonumentHero, Facts, Video3D, Section, Credit, Figure, Timeline, Coordinates, Sources } from '../components/Monument'
+import { MonumentHero, Intro, Facts, Video3D, Section, TextLink, Credit, Figure, Timeline, Coordinates, Sources } from '../components/Monument'
 import { responsiveImage, singleImage, videoSrc } from '../utils/images'
 
 const img = (name, widths) => responsiveImage(`tuproq-qala/${name}`, widths)
-
-const linkClass = 'font-semibold text-slate-900 underline underline-offset-4 hover:text-slate-600'
 
 const facts = [
   { label: 'Poytaxt bo\'lgan', value: 'Milodiy II–III asrlar' },
@@ -39,7 +36,7 @@ const sources = [
 
 export default function TuproqQala() {
   return (
-    <main className="flex-1">
+    <main className="flex-1 bg-white">
       <MonumentHero
         image={img('bosh-rasm', [960, 1280, 1920])}
         alt="Tuproq qal'a xarobalari: shahar xonalarining devorlari, orqada Baland saroy tepaligi"
@@ -47,7 +44,7 @@ export default function TuproqQala() {
         subtitle="Qadimgi Xorazm podsholarining poytaxti va devoriy rasmlari bilan mashhur Baland saroy"
       />
 
-      <div className="mx-auto max-w-4xl px-6 pb-20">
+      <Intro>
         <Facts items={facts} />
 
         <Video3D
@@ -58,7 +55,9 @@ export default function TuproqQala() {
           Shaharning qayta tiklangan 3D modeli: minorali devorlar bilan o'ralgan to'g'ri to'rtburchak shahar,
           zich turar-joy mahallalari, darvoza oldidagi kirish inshooti va baland platformadagi saroy.
         </Video3D>
+      </Intro>
 
+      <div className="mx-auto max-w-4xl px-6 pb-24">
         <Section title="Umumiy ma'lumot">
           <p>
             Tuproq qal'a — Qadimgi Xorazmning eng yirik va eng mashhur shahar-qal'alaridan biri. U
@@ -99,8 +98,8 @@ export default function TuproqQala() {
           <p>Saroyning tantanali qismidagi zallar rang-barang loy barelyeflar va devoriy rasmlar bilan bezatilgan:</p>
           <dl className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {halls.map((hall) => (
-              <div key={hall.name} className="rounded-lg border border-slate-200 p-4 sm:last:odd:col-span-2">
-                <dt className="font-semibold text-slate-900">{hall.name}</dt>
+              <div key={hall.name} className="rounded-2xl border border-slate-200 p-5 transition-colors hover:border-firuza-500/50 sm:last:odd:col-span-2">
+                <dt className="font-semibold text-tun-950">{hall.name}</dt>
                 <dd className="mt-1 text-base leading-7">{hall.text}</dd>
               </div>
             ))}
@@ -169,7 +168,7 @@ export default function TuproqQala() {
           <p>
             Qal'a Amudaryoning o'ng sohilida, Sulton Uvays tog' tizmasidan bir necha kilometr janubda
             joylashgan. Undan atigi 1 km g'arbda Qizil qal'a, 30 km janubi-sharqda esa{' '}
-            <Link to="/qoy-qirilgan-qala" className={linkClass}>Qo'y Qirilgan qal'a</Link> bor.
+            <TextLink to="/qoy-qirilgan-qala">Qo'y Qirilgan qal'a</TextLink> bor.
           </p>
           <Figure image={img('xarita', [640, 1280])} alt="Xorazm vohasining sun'iy yo'ldosh surati, Tuproq qal'a o'rni belgilangan" className="pt-2">
             Xorazm vohasi kosmosdan. Belgilangan joy — Tuproq qal'a joylashgan hudud.{' '}
