@@ -54,6 +54,27 @@ export function Section({ title, children }) {
   )
 }
 
+// 3D video: "play" bosilmaguncha yuklanmaydi (preload="none"), ungacha muqova rasmi ko'rinadi
+export function Video3D({ src, poster, title, children }) {
+  return (
+    <section className="mt-14">
+      <div className="flex items-center gap-3">
+        <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">3D ko'rinish</h2>
+        <span className="rounded-full bg-teal-50 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider text-teal-700 ring-1 ring-teal-200">
+          Video
+        </span>
+      </div>
+      <p className="mt-3 text-lg leading-8 text-slate-600">{children}</p>
+      <div className="mt-5 overflow-hidden rounded-2xl bg-slate-900 shadow-xl shadow-slate-900/10 ring-1 ring-slate-900/5">
+        <video controls playsInline preload="none" poster={poster} aria-label={title} className="aspect-video w-full bg-slate-900">
+          <source src={src} type="video/mp4" />
+          Brauzeringiz videoni qo'llab-quvvatlamaydi.
+        </video>
+      </div>
+    </section>
+  )
+}
+
 export function Credit({ author, license, href }) {
   return (
     <>

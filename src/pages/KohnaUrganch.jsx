@@ -1,5 +1,5 @@
-import { MonumentHero, Facts, Section, Credit, Figure, Timeline, Coordinates, Sources } from '../components/Monument'
-import { responsiveImage } from '../utils/images'
+import { MonumentHero, Facts, Video3D, Section, Credit, Figure, Timeline, Coordinates, Sources } from '../components/Monument'
+import { responsiveImage, singleImage, videoSrc } from '../utils/images'
 
 const img = (name, widths) => responsiveImage(`kohna-urganch/${name}`, widths)
 
@@ -70,6 +70,15 @@ export default function KohnaUrganch() {
 
       <div className="mx-auto max-w-4xl px-6 pb-20">
         <Facts items={facts} />
+
+        <Video3D
+          src={videoSrc('kohna-urganch-3d')}
+          poster={singleImage('kohna-urganch/video-muqova')}
+          title="Ko'hna Urganchning 3D modeli"
+        >
+          Shaharning qayta tiklangan 3D modeli: devorlar bilan o'ralgan Urganch, uning zich mahallalari, ko'k
+          gumbazli binolari va minoralari, shahar atrofidagi bog'lar.
+        </Video3D>
 
         <Section title="Umumiy ma'lumot">
           <p>

@@ -7,6 +7,12 @@ export const imageSrc = (name, width) => `${IMAGES_BASE}/${name}-${width}.webp`
 export const imageSrcSet = (name, widths) =>
   widths.map((width) => `${imageSrc(name, width)} ${width}w`).join(', ')
 
+// Bitta o'lchamli rasm (masalan, video muqovasi): public/images/<nom>.webp
+export const singleImage = (name) => `${IMAGES_BASE}/${name}.webp`
+
+// public/videos ichidagi siqilgan videolar (asl fayllar src/videos'da, git'ga kirmaydi)
+export const videoSrc = (name) => `${import.meta.env.BASE_URL}videos/${name}.mp4`
+
 // <img> uchun tayyor juftlik: src — eng katta kenglik, srcSet — barcha kengliklar
 export const responsiveImage = (name, widths) => ({
   src: imageSrc(name, widths[widths.length - 1]),

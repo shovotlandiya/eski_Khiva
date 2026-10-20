@@ -51,7 +51,7 @@ const values = [
   {
     icon: 'cube',
     title: '3D ko\'rinish',
-    text: "Kelgusida yodgorliklarning 3D modellarini qo'shib, ularni har tomondan aylantirib ko'rish imkonini bermoqchimiz.",
+    text: "Yodgorliklar 3D modelda qayta tiklangan. Ularning videolarini har bir yodgorlik sahifasida ko'rishingiz mumkin.",
   },
 ]
 

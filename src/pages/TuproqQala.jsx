@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { MonumentHero, Facts, Section, Credit, Figure, Timeline, Coordinates, Sources } from '../components/Monument'
-import { responsiveImage } from '../utils/images'
+import { MonumentHero, Facts, Video3D, Section, Credit, Figure, Timeline, Coordinates, Sources } from '../components/Monument'
+import { responsiveImage, singleImage, videoSrc } from '../utils/images'
 
 const img = (name, widths) => responsiveImage(`tuproq-qala/${name}`, widths)
 
@@ -49,6 +49,15 @@ export default function TuproqQala() {
 
       <div className="mx-auto max-w-4xl px-6 pb-20">
         <Facts items={facts} />
+
+        <Video3D
+          src={videoSrc('tuproq-qala-3d')}
+          poster={singleImage('tuproq-qala/video-muqova')}
+          title="Tuproq qal'aning 3D modeli"
+        >
+          Shaharning qayta tiklangan 3D modeli: minorali devorlar bilan o'ralgan to'g'ri to'rtburchak shahar,
+          zich turar-joy mahallalari, darvoza oldidagi kirish inshooti va baland platformadagi saroy.
+        </Video3D>
 
         <Section title="Umumiy ma'lumot">
           <p>

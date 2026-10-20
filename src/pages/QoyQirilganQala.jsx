@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { MonumentHero, Facts, Section, Credit, Figure, Timeline, Coordinates, Sources } from '../components/Monument'
-import { responsiveImage } from '../utils/images'
+import { MonumentHero, Facts, Video3D, Section, Credit, Figure, Timeline, Coordinates, Sources } from '../components/Monument'
+import { responsiveImage, singleImage, videoSrc } from '../utils/images'
 
 const img = (name, widths) => responsiveImage(`qoy-qirilgan-qala/${name}`, widths)
 
@@ -47,6 +47,15 @@ export default function QoyQirilganQala() {
 
       <div className="mx-auto max-w-4xl px-6 pb-20">
         <Facts items={facts} />
+
+        <Video3D
+          src={videoSrc('qoy-qirilgan-qala-3d')}
+          poster={singleImage('qoy-qirilgan-qala/video-muqova')}
+          title="Qo'y Qirilgan qal'aning 3D modeli"
+        >
+          Qal'aning qayta tiklangan 3D modeli: tashqi devorlar va hovli, mash'alalar bilan yoritilgan ichki
+          xonalar va olov yonib turgan zal. Qadimda bu yerda hayot qanday kechganini ko'ring.
+        </Video3D>
 
         <Section title="Umumiy ma'lumot">
           <p>
